@@ -74,19 +74,19 @@ def process(gpuIdx: int, file: str, mask: "ElementTree.Element", logger_queue: "
     writer.release()
     cap.release()
 
-    filename = os.path.join(OUT_DIR, file)
-    filename_x264 = f"{filename[:-len('.mp4')]}.x264.mp4"
+    # filename = os.path.join(OUT_DIR, file)
+    # filename_x264 = f"{filename[:-len('.mp4')]}.x264.mp4"
 
-    if os.path.exists(filename_x264):
-        os.remove(filename_x264)
+    # if os.path.exists(filename_x264):
+    #     os.remove(filename_x264)
 
-    command = (
-        "docker run --rm -v $(pwd):/config linuxserver/ffmpeg " +
-        "-i {input_file} ".format(input_file=os.path.join('/config', filename)) +
-        "-vcodec libx264 " +
-        "{output_file}".format(output_file=os.path.join('/config', filename_x264))
-    )
-    os.system(command)
+    # command = (
+    #     "docker run --rm -v $(pwd):/config linuxserver/ffmpeg " +
+    #     "-i {input_file} ".format(input_file=os.path.join('/config', filename)) +
+    #     "-vcodec libx264 " +
+    #     "{output_file}".format(output_file=os.path.join('/config', filename_x264))
+    # )
+    # os.system(command)
 
 
 def main():
